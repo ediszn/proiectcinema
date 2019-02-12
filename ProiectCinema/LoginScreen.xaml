@@ -1,0 +1,24 @@
+﻿<Window x:Class="ProiectCinema.LoginScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProiectCinema"
+        mc:Ignorable="d"
+        Title="Cinema IESC" Height="550" Width="800" MinWidth="380" MinHeight="520">
+    <Grid Margin="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="218"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160" MinHeight="160"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Image Height="Auto" Width="Auto" Source="cinemaproiect.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+        <TextBox Name="UserTxtBox" Opacity="0.6" HorizontalAlignment="Center" Height="33" Margin="0,30,0,0" Grid.Row="1" Text="Username " Width="180" GotKeyboardFocus="UserTxtBox_GotKeyboardFocus" LostKeyboardFocus="UserTxtBox_LostKeyboardFocus" FontSize="20"/>
+        <TextBox Name="PassTxtBox" Opacity ="0.6" HorizontalAlignment="Center" Height="33" Margin="0,10,0,0" Grid.Row="2" Text="Password " Width="180" GotKeyboardFocus="PassTxtBox_GotKeyboardFocus" LostKeyboardFocus="PassTxtBox_LostKeyboardFocus" FontSize="20"/>
+    </Grid>
+</Window>
