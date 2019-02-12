@@ -12,19 +12,20 @@
             <GradientStop Color="#FF0D213E" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid Margin="50">
+    <Grid Margin="0,0,0,50" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="218"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="160" MinHeight="160"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" MinHeight="160"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Image Height="Auto" Width="Auto" Source="logocinemaalb.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
-        <TextBox Name="UserTxtBox" Opacity="0.6" HorizontalAlignment="Center" Height="33" Margin="0,30,0,0" Grid.Row="1" Text="Username " Width="180" GotKeyboardFocus="UserTxtBox_GotKeyboardFocus" LostKeyboardFocus="UserTxtBox_LostKeyboardFocus" FontSize="20"/>
-        <TextBox Name="PassTxtBox" Opacity ="0.6" HorizontalAlignment="Center" Height="33" Margin="0,10,0,0" Grid.Row="2" Text="Password " Width="180" GotKeyboardFocus="PassTxtBox_GotKeyboardFocus" LostKeyboardFocus="PassTxtBox_LostKeyboardFocus" FontSize="20"/>
+        <Image Name="Logo" Height="Auto" Width="Auto" Source="logocinemaalb.png" Grid.Row="0" HorizontalAlignment="Center"/>
+        <TextBox Name="UserTxtBox" Height="Auto" Width="Auto" MinHeight="33" MinWidth="160" HorizontalAlignment="Center" Margin="20,30,20,0" Grid.Row="1" Opacity="0.6" Text="Username " GotKeyboardFocus="UserTxtBox_GotKeyboardFocus" LostKeyboardFocus="UserTxtBox_LostKeyboardFocus" FontSize="20"/>
+        <TextBox Name="PassTxtBox" Height="Auto" Width="Auto" MinHeight="33" MinWidth="160" HorizontalAlignment="Center" Margin="20,10,20,0" Grid.Row="2" Opacity="0.6" Text="Password " GotKeyboardFocus="PassTxtBox_GotKeyboardFocus" LostKeyboardFocus="PassTxtBox_LostKeyboardFocus" FontSize="20"/>
+        <Button Name="LoginButton" Height="Auto" Width="Auto" MinHeight="40" MinWidth="100" HorizontalAlignment="Center" Margin="40,20,40,0" Content="Login" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Grid.Row="3"/>
     </Grid>
 </Window>
