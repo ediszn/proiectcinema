@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logocinemaalb.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logindb.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logindb_log.ldf")]
 
 

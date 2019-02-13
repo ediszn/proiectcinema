@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,40 @@ namespace ProiectCinema
             {
                 txtBox.Text = "Password ";
                 txtBox.Opacity = 0.6;
+            }
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\szenql; Initial Catalog=ProiectCinema; Integrated Security=True");
+            try
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                String query = "SELECT COUNT(1) FROM tblUser WHERE Username=@Username AND Password=@Password";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.CommandType = System.Data.CommandType.Text;
+                sqlCmd.Parameters.AddWithValue("@Username", UserTxtBox.Text);
+                sqlCmd.Parameters.AddWithValue("@Password", PassTxtBox.Text);
+                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                if(count == 1)
+                {
+                    MainWindow dashboard = new MainWindow();
+                    dashboard.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username or password is incorrect!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlCon.Close();
             }
         }
     }
