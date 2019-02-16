@@ -20,9 +20,17 @@ namespace ProiectCinema
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        string uservar;
+        public MainWindow(string _text)
         {
             InitializeComponent();
+            this.DataContext = this;
+            this.uservar = _text;
+        }
+        public string Loggeduser
+        {
+            get { return uservar; }
+            set { uservar = value; }
         }
     }
 }

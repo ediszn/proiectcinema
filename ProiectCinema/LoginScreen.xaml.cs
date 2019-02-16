@@ -65,7 +65,7 @@ namespace ProiectCinema
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
-                    MainWindow dashboard = new MainWindow();
+                    MainWindow dashboard = new MainWindow(UserTxtBox.Text);
                     dashboard.Show();
                     this.Close();
                 }
