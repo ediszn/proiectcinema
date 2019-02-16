@@ -51,7 +51,7 @@ namespace ProiectCinema
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\szenql; Initial Catalog=ProiectCinema; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\"+ sqlServerName.serverName + "; Initial Catalog="+ sqlServerName.dBName +"; Integrated Security=True");
             try
             {
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
