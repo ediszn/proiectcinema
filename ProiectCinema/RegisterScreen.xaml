@@ -56,14 +56,14 @@
         <Image Name="LogoR" Height="Auto" Width="Auto" Source="logocinemaalb.png" Grid.Row="0" HorizontalAlignment="Center"/>
 
         <Label Name="UserLabelR" MinHeight="33" MinWidth="160" HorizontalAlignment="Left" Margin="-55,25,0,0" Grid.Row="1" Content="Username:" Foreground="White" FontSize="20"/>
-        <TextBox Name="UserTxtBox" MaxWidth="150" MinHeight="33" MinWidth="210" HorizontalAlignment="Right" Margin="20,30,-55,0" Grid.Row="1" Opacity="0.6" GotKeyboardFocus="OpCTxtBox_GotKeyboardFocus" LostKeyboardFocus="OpCTxtBox_LostKeyboardFocus" FontSize="20"/>
+        <TextBox Name="UserTxtBoxR" MaxWidth="150" MinHeight="33" MinWidth="210" HorizontalAlignment="Right" Margin="20,30,-55,0" Grid.Row="1" Opacity="0.6" GotKeyboardFocus="OpCTxtBox_GotKeyboardFocus" LostKeyboardFocus="OpCTxtBox_LostKeyboardFocus" FontSize="20"/>
 
         <Label Name="PassLabelR" MinHeight="33" MinWidth="160" HorizontalAlignment="Left" Margin="-55,10,0,0" Grid.Row="2" Content="Password:" Foreground="White" FontSize="20"/>
-        <PasswordBox Name="PassTxtBox" MaxWidth="150" MinHeight="33" MinWidth="210" HorizontalAlignment="Right" Margin="20,10,-55,0" Grid.Row="2" Opacity="0.6" GotKeyboardFocus="OpCPassBox_GotKeyboardFocus" LostKeyboardFocus="OpCPassBox_LostKeyboardFocus" FontSize="20"/>
+        <PasswordBox Name="PassTxtBoxR" MaxWidth="150" MinHeight="33" MinWidth="210" HorizontalAlignment="Right" Margin="20,10,-55,0" Grid.Row="2" Opacity="0.6" GotKeyboardFocus="OpCPassBox_GotKeyboardFocus" LostKeyboardFocus="OpCPassBox_LostKeyboardFocus" FontSize="20"/>
 
         <Label Name="ConfirmPass" MinHeight="33" MinWidth="160" HorizontalAlignment="Left" Margin="-55,10,0,0" Grid.Row="3" Content="Confirm password:" Foreground="White" FontSize="20"/>
         <PasswordBox Name="ConfirmPassBox" MaxWidth="150" MinHeight="33" MinWidth="210" HorizontalAlignment="Right" Margin="20,10,-55,0" Grid.Row="3" Opacity="0.6" GotKeyboardFocus="OpCPassCBox_GotKeyboardFocus" LostKeyboardFocus="OpCPassCBox_LostKeyboardFocus" FontSize="20"/>
 
-        <Button Name="RegisterButton" Height="Auto" Width="Auto" MinHeight="40" MinWidth="150" HorizontalAlignment="Center" Margin="40,30,40,0" Content="Register" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Grid.Row="4" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}" IsDefault="True"/>
+        <Button Name="RegisterButton" Height="Auto" Width="Auto" MinHeight="40" MinWidth="150" HorizontalAlignment="Center" Margin="40,30,40,0" Content="Register" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Grid.Row="4" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}" IsDefault="True" Click="RegisterButton_Click"/>
     </Grid>
 </Window>

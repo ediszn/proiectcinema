@@ -73,7 +73,7 @@
     <Compile Include="RegisterScreen.xaml.cs">
       <DependentUpon>RegisterScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sqlServerAndDBName.cs" />
+    <Compile Include="variabileSQL.cs" />
     <Page Include="LoginScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
