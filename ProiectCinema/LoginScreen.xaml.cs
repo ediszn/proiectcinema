@@ -34,7 +34,8 @@ namespace ProiectCinema
         private void OpCTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             TextBox txtBox = sender as TextBox;
-            txtBox.Opacity = 0.6;
+            if(txtBox.Text == "")
+                txtBox.Opacity = 0.6;
         }
         private void OpCPassBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
@@ -45,13 +46,14 @@ namespace ProiectCinema
         private void OpCPassBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             PasswordBox passBox = sender as PasswordBox;
-            passBox.Opacity = 0.6;
+            if (passBox.Password.ToString() == "")
+                passBox.Opacity = 0.6;
         }
 
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\"+ sqlServerName.serverName + "; Initial Catalog="+ sqlServerName.dBName +"; Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\"+ sqlServerAndDBName.serverName + "; Initial Catalog="+ sqlServerAndDBName.dBName +"; Integrated Security=True");
             try
             {
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
@@ -70,7 +72,7 @@ namespace ProiectCinema
                 }
                 else
                 {
-                    if(UserTxtBox.Text == "Username ")
+                    if(UserTxtBox.Text == "")
                         MessageBox.Show("Please enter a valid username and password.");
                     else
                     MessageBox.Show("Username or password is incorrect!");
@@ -86,10 +88,10 @@ namespace ProiectCinema
             }
         }
 
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void RegisterText_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow dashboard = new MainWindow();
-            dashboard.Show();
+            RegisterScreen dashboard = new RegisterScreen();
+            dashboard.ShowDialog();
         }
     }
 }

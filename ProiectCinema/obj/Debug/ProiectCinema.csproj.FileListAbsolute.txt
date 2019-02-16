@@ -32,3 +32,5 @@ G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.csproj.Gener
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.csproj.CoreCompileInputs.cache
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.exe
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.pdb
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\RegisterScreen.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\RegisterScreen.baml
