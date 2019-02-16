@@ -53,18 +53,17 @@ namespace ProiectCinema
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\"+ sqlServerAndDBName.serverName + "; Initial Catalog="+ sqlServerAndDBName.dBName +"; Integrated Security=True");
-            try
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabileSQL.serverName + "; Initial Catalog=" + variabileSQL.dBName + "; Integrated Security=True"))
             {
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
                     sqlCon.Open();
-                String query = "SELECT COUNT(1) FROM tblUser WHERE Username=@Username AND Password=@Password";
+                String query = "SELECT COUNT(*) FROM " + variabileSQL.usertable + " WHERE username=@username AND password=@password";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.CommandType = System.Data.CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@Username", UserTxtBox.Text);
-                sqlCmd.Parameters.AddWithValue("@Password", PassTxtBox.Password.ToString());
+                sqlCmd.Parameters.AddWithValue("@username", UserTxtBox.Text);
+                sqlCmd.Parameters.AddWithValue("@password", PassTxtBox.Password.ToString());
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-                if(count == 1)
+                if (count == 1)
                 {
                     MainWindow dashboard = new MainWindow();
                     dashboard.Show();
@@ -72,19 +71,11 @@ namespace ProiectCinema
                 }
                 else
                 {
-                    if(UserTxtBox.Text == "")
+                    if (UserTxtBox.Text == "" || PassTxtBox.Password.ToString() == "")
                         MessageBox.Show("Please enter a valid username and password.");
                     else
-                    MessageBox.Show("Username or password is incorrect!");
+                        MessageBox.Show("Username or password is incorrect!");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sqlCon.Close();
             }
         }
 
