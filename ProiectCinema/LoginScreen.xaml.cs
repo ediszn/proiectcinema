@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,44 +25,73 @@ namespace ProiectCinema
             InitializeComponent();
         }
 
-        private void UserTxtBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void OpCTxtBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             TextBox txtBox = sender as TextBox;
-            if (txtBox.Text == "Username ")
-            {
-                txtBox.Text = string.Empty;
-                txtBox.Opacity = 1;
-            }
+            txtBox.Opacity = 1;
+            
         }
-
-        private void UserTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void OpCTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             TextBox txtBox = sender as TextBox;
-            if (txtBox.Text == "")
-            {
-                txtBox.Text = "Username ";
+            if(txtBox.Text == "")
                 txtBox.Opacity = 0.6;
+        }
+        private void OpCPassBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            PasswordBox passBox = sender as PasswordBox;
+            passBox.Opacity = 1;
+
+        }
+        private void OpCPassBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            PasswordBox passBox = sender as PasswordBox;
+            if (passBox.Password.ToString() == "")
+                passBox.Opacity = 0.6;
+        }
+
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\"+ sqlServerAndDBName.serverName + "; Initial Catalog="+ sqlServerAndDBName.dBName +"; Integrated Security=True");
+            try
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                String query = "SELECT COUNT(1) FROM tblUser WHERE Username=@Username AND Password=@Password";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.CommandType = System.Data.CommandType.Text;
+                sqlCmd.Parameters.AddWithValue("@Username", UserTxtBox.Text);
+                sqlCmd.Parameters.AddWithValue("@Password", PassTxtBox.Password.ToString());
+                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                if(count == 1)
+                {
+                    MainWindow dashboard = new MainWindow();
+                    dashboard.Show();
+                    this.Close();
+                }
+                else
+                {
+                    if(UserTxtBox.Text == "")
+                        MessageBox.Show("Please enter a valid username and password.");
+                    else
+                    MessageBox.Show("Username or password is incorrect!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlCon.Close();
             }
         }
 
-        private void PassTxtBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void RegisterText_Click(object sender, RoutedEventArgs e)
         {
-            TextBox txtBox = sender as TextBox;
-            if (txtBox.Text == "Password ")
-            {
-                txtBox.Text = string.Empty;
-                txtBox.Opacity = 1;
-            }
-        }
-
-        private void PassTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            TextBox txtBox = sender as TextBox;
-            if (txtBox.Text == "")
-            {
-                txtBox.Text = "Password ";
-                txtBox.Opacity = 0.6;
-            }
+            RegisterScreen dashboard = new RegisterScreen();
+            dashboard.ShowDialog();
         }
     }
 }
