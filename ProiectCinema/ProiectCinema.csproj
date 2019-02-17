@@ -142,5 +142,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="headercinema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cameralogo.png" />
+    <Resource Include="cinemaheadertext.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

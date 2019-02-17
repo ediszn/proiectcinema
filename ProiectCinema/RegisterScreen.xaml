@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProiectCinema"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Cinema IESC" Height="660" Width="480" MinWidth="480" MinHeight="620" Icon="cinemaproiect.png">
     <Window.Resources>
