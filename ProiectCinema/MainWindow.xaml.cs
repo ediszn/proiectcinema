@@ -32,5 +32,20 @@ namespace ProiectCinema
             get { return uservar; }
             set { uservar = value; }
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to log out?", "Cinema IESC", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    LoginScreen dashboard = new LoginScreen();
+                    dashboard.Show();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
     }
 }
