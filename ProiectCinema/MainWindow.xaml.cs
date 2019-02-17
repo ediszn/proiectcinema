@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +24,50 @@ namespace ProiectCinema
     /// </summary>
     public partial class MainWindow : Window
     {
+
         string uservar;
+
         public MainWindow(string _text)
         {
             InitializeComponent();
             this.DataContext = this;
             this.uservar = _text;
+            afisajfilmeMW();
+
         }
+
+        private void afisajfilmeMW()
+        {
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabileSQL.serverName + "; Initial Catalog=" + variabileSQL.dBName + "; Integrated Security=True"))
+            {
+                string query1 = "SELECT afis FROM filmeMainWindow WHERE numeFilm = 'Aquaman'";
+
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                SqlCommand sqlCmd = new SqlCommand(query1, sqlCon);
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                reader.Read();
+                byte[] img = (byte[])(reader[0]);
+                MemoryStream ms = new MemoryStream(img);
+                var imageSource = new BitmapImage();
+                imageSource.BeginInit();
+                imageSource.StreamSource = ms;
+                imageSource.EndInit();
+                Afis1.Source = imageSource;
+                reader.Close();
+
+                string query2 = "SELECT descriere FROM filmeMainWindow WHERE numeFilm = 'Aquaman'";
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
+                SqlDataReader reader2 = sqlCmd2.ExecuteReader();
+                reader2.Read();
+                Desc1.Content = reader2[0].ToString();
+                reader2.Close();
+
+            }
+        }
+
         public string Loggeduser
         {
             get { return uservar; }
