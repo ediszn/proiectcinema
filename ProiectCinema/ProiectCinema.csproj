@@ -165,5 +165,8 @@
     <Resource Include="cameralogo.png" />
     <Resource Include="cinemaheadertext.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="defaultafis.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

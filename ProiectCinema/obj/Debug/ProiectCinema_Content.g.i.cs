@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cameralogo.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cinemaheadertext.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("defaultafis.jpg")]
 
 

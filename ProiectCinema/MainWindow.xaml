@@ -95,16 +95,16 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="260"/>
-                    <ColumnDefinition Width="480"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="180"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
 
                 </Grid.RowDefinitions>
-                <Image Name="Afis1" Grid.Row="0" Grid.Column="0" Height="300" Margin="20,10,0,10" Width="220" HorizontalAlignment="Left"/>
-                <Label Name="Desc1" Grid.Row="0" Grid.Column="1" Height="248" Margin="20,10,0,10" Width="460" HorizontalAlignment="Left"/>
+                <Image Name="Afis1" Source="defaultafis.jpg" Grid.Row="0" Grid.Column="0" MinHeight="300" MinWidth="220" Height="Auto" Width="Auto" Margin="20,10,10,10" HorizontalAlignment="Center"/>
+                <TextBlock TextWrapping="WrapWithOverflow" Name="Desc1" Grid.Row="0" Grid.Column="1" MinHeight="250" MinWidth="450" Height="Auto" Width="Auto" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
 
 
 

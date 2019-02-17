@@ -62,7 +62,7 @@ namespace ProiectCinema
                 SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
                 SqlDataReader reader2 = sqlCmd2.ExecuteReader();
                 reader2.Read();
-                Desc1.Content = reader2[0].ToString();
+                Desc1.Text = reader2[0].ToString();
                 reader2.Close();
 
             }
