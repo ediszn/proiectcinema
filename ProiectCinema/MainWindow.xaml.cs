@@ -32,15 +32,15 @@ namespace ProiectCinema
             InitializeComponent();
             this.DataContext = this;
             this.uservar = _text;
-            afisajfilmeMW();
+            afisajfilmeMW(variabile.film4);
 
         }
 
-        private void afisajfilmeMW()
+        private void afisajfilmeMW(string title)
         {
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabileSQL.serverName + "; Initial Catalog=" + variabileSQL.dBName + "; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
             {
-                string query1 = "SELECT afis FROM filmeMainWindow WHERE numeFilm = 'Aquaman'";
+                string query1 = "SELECT afis FROM filmeMainWindow WHERE numeFilm = '"+title+"'";
 
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
                     sqlCon.Open();
@@ -56,7 +56,7 @@ namespace ProiectCinema
                 Afis1.Source = imageSource;
                 reader.Close();
 
-                string query2 = "SELECT descriere FROM filmeMainWindow WHERE numeFilm = 'Aquaman'";
+                string query2 = "SELECT descriere FROM filmeMainWindow WHERE numeFilm = '"+title+"'";
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
                     sqlCon.Open();
                 SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);

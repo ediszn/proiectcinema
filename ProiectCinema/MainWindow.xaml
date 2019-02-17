@@ -9,6 +9,10 @@
         mc:Ignorable="d"
         Title="Cinema IESC" Height="680" Width="1000" MinHeight="680" MinWidth="1000" Icon="cinemaproiect.png">
     <Window.Resources>
+        <DataTemplate x:Key="MovieTemplate">
+            
+        </DataTemplate>
+        
         <Style x:Key="TransparentButton" TargetType="{x:Type Button}">
             <Setter Property="SnapsToDevicePixels" Value="true"/>
             <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -101,16 +105,36 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
 
                 </Grid.RowDefinitions>
                 <Image Name="Afis1" Source="defaultafis.jpg" Grid.Row="0" Grid.Column="0" MinHeight="300" MinWidth="220" Height="Auto" Width="Auto" Margin="20,10,10,10" HorizontalAlignment="Center"/>
                 <TextBlock TextWrapping="WrapWithOverflow" Name="Desc1" Grid.Row="0" Grid.Column="1" MinHeight="250" MinWidth="450" Height="Auto" Width="Auto" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
+                <Label Name="labelrezervare" Content="Book now:" Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="10,40,0,0"/>
 
-
-
-
-
-
+                <ComboBox Name="chooseDate" Grid.Column="2" Height="Auto" Width="Auto" MinWidth="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,100" FontSize="15" Foreground="Black">
+                    <ComboBox.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF0D213E" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.BorderBrush>
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF0D213E" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                    <ComboBoxItem IsSelected="True">-Choose date-</ComboBoxItem>
+                    <ComboBoxItem>Date1</ComboBoxItem>
+                    <ComboBoxItem>Date2</ComboBoxItem>
+                    <ComboBoxItem>Date3</ComboBoxItem>
+                </ComboBox>
             </Grid>
         </ScrollViewer>
 
