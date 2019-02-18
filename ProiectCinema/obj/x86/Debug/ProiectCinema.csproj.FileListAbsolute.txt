@@ -1,0 +1,8 @@
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\LoginScreen.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\MainWindow.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\myControl1.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\RegisterScreen.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\App.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\ProiectCinema_MarkupCompile.cache
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\x86\Debug\ProiectCinema_MarkupCompile.lref

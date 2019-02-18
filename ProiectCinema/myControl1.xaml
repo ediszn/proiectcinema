@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ProiectCinema.myControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProiectCinema"
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="580" d:DesignWidth="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="180"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Image Source="{Binding Sursa}" Grid.Row="0" Grid.Column="0" MinHeight="300" MinWidth="220" Height="Auto" Width="Auto" Margin="20,10,10,10" HorizontalAlignment="Center"/>
+        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Desc}" Grid.Row="0" Grid.Column="1" MinHeight="250" MinWidth="450" Height="Auto" Width="Auto" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
+        <TextBlock Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="5,80,0,0">
+            <Hyperlink NavigateUri="{Binding Trailer}" RequestNavigate="Hyperlink_RequestNavigate">
+                Watch Trailer
+            </Hyperlink>
+        </TextBlock>
+        <Label Content="Book now:" Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="10,150,0,0"/>
+
+        <ComboBox Name="DateCombo" Grid.Column="2" Height="Auto" Width="Auto" MinWidth="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,100" FontSize="15" Foreground="Black">
+            <ComboBoxItem Name="DefaultItem" IsSelected="True">-Choose date-</ComboBoxItem>
+            <ComboBoxItem Name="ItemDate1" Content="{Binding Date1}"></ComboBoxItem>
+            <ComboBoxItem Name="ItemDate2" Content="{Binding Date2}"></ComboBoxItem>
+            <ComboBoxItem Name="ItemDate3" Content="{Binding Date3}"></ComboBoxItem>
+        </ComboBox>
+
+        <Button Name="BookButton" Click="BookButton_Click" Grid.Column="2" Height="Auto" Width="Auto" MinHeight="40" MinWidth="160" MaxHeight="50" Margin="10,200,0,0" HorizontalAlignment="Left" Content="Book Seats!" FontSize="20" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}"/>
+    </Grid>
+</UserControl>

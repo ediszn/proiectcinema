@@ -24,12 +24,10 @@ namespace ProiectCinema
         {
             InitializeComponent();
         }
-
         private void OpCTxtBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             TextBox txtBox = sender as TextBox;
             txtBox.Opacity = 1;
-
         }
         private void OpCTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
@@ -61,10 +59,9 @@ namespace ProiectCinema
             if (passBox.Password.ToString() == "")
                 passBox.Opacity = 0.6;
         }
-
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabileSQL.serverName + "; Initial Catalog=" + variabileSQL.dBName + "; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=ProiectCinema; Integrated Security=True"))
             {
                 if (UserTxtBoxR.Text == "" || PassTxtBoxR.Password.ToString() == "")
                     MessageBox.Show("Please enter a valid username and password.");
@@ -74,8 +71,7 @@ namespace ProiectCinema
                 {
                     if (sqlCon.State == System.Data.ConnectionState.Closed)
                         sqlCon.Open();
-
-                    String query = "SELECT COUNT(*) FROM " + variabileSQL.usertable + " WHERE username=@username";
+                    String query = "SELECT COUNT(*) FROM users WHERE username=@username";
                     SqlCommand sqlCmd1 = new SqlCommand(query, sqlCon);
                     sqlCmd1.CommandType = System.Data.CommandType.Text;
                     sqlCmd1.Parameters.AddWithValue("@username", UserTxtBoxR.Text);

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProiectCinema"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Cinema IESC" Height="520" Width="380" MinWidth="380" MinHeight="520" Icon="cinemaproiect.png">
     <Window.Resources>
@@ -34,7 +35,6 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
@@ -62,6 +62,6 @@
         <PasswordBox Name="PassTxtBox" MaxWidth="150" MinHeight="33" MinWidth="150" HorizontalAlignment="Right" Margin="20,10,10,0" Grid.Row="2" Opacity="0.6" GotKeyboardFocus="OpCPassBox_GotKeyboardFocus" LostKeyboardFocus="OpCPassBox_LostKeyboardFocus" FontSize="20"/>
 
         <Button Name="LoginButton" Click="LoginButton_Click" Height="Auto" Width="Auto" MinHeight="40" MinWidth="100" HorizontalAlignment="Center" Margin="40,20,40,0" Content="Login" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Grid.Row="3" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}" IsDefault="True"/>
-        <Button Name="RegisterText" Style="{StaticResource TransparentButton}" MinHeight="30" MinWidth="120" HorizontalAlignment="Center" Margin="15,40,15,0" Content="Don't have an account? Click here!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Grid.Row="4" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" Click="RegisterText_Click"/>
+        <Button Name="RegisterText" Style="{StaticResource TransparentButton}" MinHeight="30" MinWidth="120" HorizontalAlignment="Center" Margin="15,40,15,0" Content="Don't have an account? Click here!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Grid.Row="4" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" Click="RegisterText_Click" Cursor="Hand"/>
     </Grid>
 </Window>

@@ -4,37 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProiectCinema"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Cinema IESC" Height="660" Width="480" MinWidth="480" MinHeight="620" Icon="cinemaproiect.png">
-    <Window.Resources>
-        <Style x:Key="TransparentButton" TargetType="{x:Type Button}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="MinHeight" Value="23"/>
-            <Setter Property="MinWidth" Value="75"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Name="Border" CornerRadius="2" BorderThickness="1"
-                    Background="{x:Null}"
-                    BorderBrush="{x:Null}">
-                            <ContentPresenter Margin="2" 
-                                 HorizontalAlignment="Center"
-                                 VerticalAlignment="Center" 
-                                 RecognizesAccessKey="True"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter TargetName="Border" 
-                          Property="TextElement.Foreground" Value="#FF3399CC" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
