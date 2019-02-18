@@ -36,7 +36,7 @@ namespace ProiectCinema
 
             using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
             {
-                string query1 = "SELECT afis, descriere, numeFilm FROM filmeMainWindow WHERE numeFilm = '" + title + "'";
+                string query1 = "SELECT afis, descriere, numeFilm, trailer FROM filmeMainWindow WHERE numeFilm = '" + title + "'";
 
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
                     sqlCon.Open();
@@ -59,10 +59,19 @@ namespace ProiectCinema
             //    SqlDataReader reader2 = sqlCmd2.ExecuteReader();
             //    reader2.Read();
                 Desc = reader[2].ToString() + "\n\n" + reader[1].ToString();
-                reader.Close();
 
+                Trailer = reader[3].ToString();
+                reader.Close();
             }
         }
+
+        public string Trailer
+        {
+            get { return (string)GetValue(TrailerProperty);  }
+            set { SetValue(TrailerProperty, value);  }
+        }
+
+        public static readonly DependencyProperty TrailerProperty = DependencyProperty.Register("Trailer", typeof(string), typeof(myControl1), new PropertyMetadata(null));
 
         public BitmapImage Sursa
         {

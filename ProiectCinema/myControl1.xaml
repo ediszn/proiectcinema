@@ -20,7 +20,7 @@
         <Image Source="{Binding Sursa}" Grid.Row="0" Grid.Column="0" MinHeight="300" MinWidth="220" Height="Auto" Width="Auto" Margin="20,10,10,10" HorizontalAlignment="Center"/>
         <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Desc}" Grid.Row="0" Grid.Column="1" MinHeight="250" MinWidth="450" Height="Auto" Width="Auto" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
         <TextBlock Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="5,80,0,0">
-            <Hyperlink NavigateUri="http://www.google.com/" RequestNavigate="Hyperlink_RequestNavigate">
+            <Hyperlink NavigateUri="{Binding Trailer}" RequestNavigate="Hyperlink_RequestNavigate">
                 Watch Trailer
             </Hyperlink>
         </TextBlock>
