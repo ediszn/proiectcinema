@@ -30,7 +30,7 @@ namespace ProiectCinema
             
             List<string> filmesiora = new List<string>();
 
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=ProiectCinema; Integrated Security=True"))
             {
                 string query1 = "SELECT numeFilm, dataOra, loc FROM rezervari WHERE username = '" + paramuser + "'";
                 if (sqlCon.State == System.Data.ConnectionState.Closed)

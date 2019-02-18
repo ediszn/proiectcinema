@@ -53,11 +53,11 @@ namespace ProiectCinema
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=ProiectCinema; Integrated Security=True"))
             {
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
                     sqlCon.Open();
-                String query = "SELECT COUNT(*) FROM " + variabile.usertable + " WHERE username=@username AND password=@password";
+                String query = "SELECT COUNT(*) FROM users WHERE username=@username AND password=@password";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.CommandType = System.Data.CommandType.Text;
                 sqlCmd.Parameters.AddWithValue("@username", UserTxtBox.Text);
