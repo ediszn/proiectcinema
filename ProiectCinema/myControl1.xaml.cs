@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
@@ -37,33 +38,63 @@ namespace ProiectCinema
             using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
             {
                 string query1 = "SELECT afis, descriere, numeFilm, trailer FROM filmeMainWindow WHERE numeFilm = '" + title + "'";
+                string query2 = "SELECT dataOra FROM difuzareFilme WHERE numeFilm = '" + title + "'";
+                List<string> a = new List<string>();
 
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
                     sqlCon.Open();
-                SqlCommand sqlCmd = new SqlCommand(query1, sqlCon);
-                SqlDataReader reader = sqlCmd.ExecuteReader();
-                reader.Read();
-                byte[] img = (byte[])(reader[0]);
+                SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon);
+                SqlDataReader reader1 = sqlCmd1.ExecuteReader();
+                reader1.Read();
+                byte[] img = (byte[])(reader1[0]);
                 MemoryStream ms = new MemoryStream(img);
                 var imageSource = new BitmapImage();
                 imageSource.BeginInit();
                 imageSource.StreamSource = ms;
                 imageSource.EndInit();
                 Sursa = imageSource;
-            //    reader.Close();
+                Desc = reader1[2].ToString() + "\n\n" + reader1[1].ToString();
+                Trailer = reader1[3].ToString();
+                reader1.Close();
 
-            //    string query2 = "SELECT descriere FROM filmeMainWindow WHERE numeFilm = '" + title + "'";
-            //    if (sqlCon.State == System.Data.ConnectionState.Closed)
-            //        sqlCon.Open();
-            //    SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
-            //    SqlDataReader reader2 = sqlCmd2.ExecuteReader();
-            //    reader2.Read();
-                Desc = reader[2].ToString() + "\n\n" + reader[1].ToString();
+                SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
+                SqlDataAdapter da = new SqlDataAdapter(sqlCmd2);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                foreach(DataRow dr in dt.Rows)
+                {
+                    a.Add(dr[0].ToString());
+                }
+                Date1 = a[0];
+                Date2 = a[1];
+                Date3 = a[2];
 
-                Trailer = reader[3].ToString();
-                reader.Close();
+
+
             }
         }
+
+        public string Date1
+        {
+            get { return (string)GetValue(Date1Property); }
+            set { SetValue(Date1Property, value); }
+        }
+
+        public static readonly DependencyProperty Date1Property = DependencyProperty.Register("Date1", typeof(string), typeof(myControl1), new PropertyMetadata(null));
+        public string Date2
+        {
+            get { return (string)GetValue(Date2Property); }
+            set { SetValue(Date2Property, value); }
+        }
+
+        public static readonly DependencyProperty Date2Property = DependencyProperty.Register("Date2", typeof(string), typeof(myControl1), new PropertyMetadata(null));
+        public string Date3
+        {
+            get { return (string)GetValue(Date3Property); }
+            set { SetValue(Date3Property, value); }
+        }
+
+        public static readonly DependencyProperty Date3Property = DependencyProperty.Register("Date3", typeof(string), typeof(myControl1), new PropertyMetadata(null));
 
         public string Trailer
         {
@@ -101,5 +132,7 @@ namespace ProiectCinema
             dashboard.ShowDialog();
             
         }
+
+
     }
 }
