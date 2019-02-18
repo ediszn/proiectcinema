@@ -18,7 +18,9 @@
                 <GradientStop Color="#FF0D213E" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label Content="ECRAN" VerticalAlignment="Center" Margin="450,0,0,280" FontSize="30" Foreground="#FF3399CC" Opacity="0.5"/>
+        <Label Content="You selected:" VerticalAlignment="Center" Margin="260,0,0,350" FontSize="20" Foreground="#FF3399CC"/>
+        <TextBlock Text="{Binding TitleBind}" VerticalAlignment="Center" Margin="390,0,0,350" FontSize="20" Foreground="White"/>
+        <Label Content="SCREEN" VerticalAlignment="Center" Margin="445,0,0,280" FontSize="30" Foreground="#FF3399CC" Opacity="0.5"/>
         <Separator  VerticalAlignment="Center" Margin="330,0,115,240" Background="#FF3399CC" Opacity="0.5">
             <Separator.RenderTransform>
                 <ScaleTransform ScaleY="5"/>

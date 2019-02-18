@@ -20,10 +20,19 @@ namespace ProiectCinema
     /// </summary>
     public partial class WindowSala : Window
     {
+        //string paramtitlu, paramuser, paramdataora;
         SolidColorBrush mybluebrush = new SolidColorBrush(Color.FromRgb(0x33, 0x99, 0xCC));
         public List<int> locuriselectate = new List<int>();
-        public WindowSala()
+        public WindowSala(string paramtitlu, string paramuser, string paramdataora)
         {
+            //this.paramtitlu = paramtitlu;
+            //this.paramuser = paramuser;
+            //this.paramdataora = paramdataora;
+            this.DataContext = this;
+            this.TitleBind = paramtitlu + " " + paramdataora;
+
+            MessageBox.Show(paramdataora);
+
             List<int> locuriocupate = new List<int>();
 
             locuriocupate.Add(10);
@@ -101,5 +110,14 @@ namespace ProiectCinema
             }
             MessageBox.Show("ati rezervat locurile :" + locuri);
         }
+
+        public string TitleBind
+        {
+            get { return (string)GetValue(TitleBindProperty); }
+            set { SetValue(TitleBindProperty, value); }
+        }
+
+        public static readonly DependencyProperty TitleBindProperty = DependencyProperty.Register("TitleBind", typeof(string), typeof(myControl1), new PropertyMetadata(null));
+
     }
 }

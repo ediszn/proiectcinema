@@ -33,14 +33,14 @@ namespace ProiectCinema
             this.DataContext = this;
             this.uservar = _text;
 
-            filmeStack.Children.Add(new myControl1(variabile.film1));
-            filmeStack.Children.Add(new myControl1(variabile.film2));
-            filmeStack.Children.Add(new myControl1(variabile.film3));
-            filmeStack.Children.Add(new myControl1(variabile.film4));
-            filmeStack.Children.Add(new myControl1(variabile.film5));
-            filmeStack.Children.Add(new myControl1(variabile.film6));
-            filmeStack.Children.Add(new myControl1(variabile.film7));
-            filmeStack.Children.Add(new myControl1(variabile.film8));
+            filmeStack.Children.Add(new myControl1(variabile.film1,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film2,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film3,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film4,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film5,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film6,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film7,Loggeduser));
+            filmeStack.Children.Add(new myControl1(variabile.film8,Loggeduser));
 
             //  afisajfilmeMW(variabile.film4);
 

@@ -24,10 +24,11 @@ namespace ProiectCinema
     /// </summary>
     public partial class myControl1 : UserControl
     {
-
-        public myControl1(string param)
+        string paramtitlu, paramuser;
+        public myControl1(string param, string userparam)
         {
             InitializeComponent();
+            this.paramuser = userparam;
 
             afisajfilmeMW(param);
         }
@@ -37,6 +38,7 @@ namespace ProiectCinema
 
             using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
             {
+                this.paramtitlu = title;
                 string query1 = "SELECT afis, descriere, numeFilm, trailer FROM filmeMainWindow WHERE numeFilm = '" + title + "'";
                 string query2 = "SELECT dataOra FROM difuzareFilme WHERE numeFilm = '" + title + "'";
                 List<string> a = new List<string>();
@@ -128,11 +130,16 @@ namespace ProiectCinema
 
         private void BookButton_Click(object sender, RoutedEventArgs e)
         {
-            WindowSala dashboard = new WindowSala();
-            dashboard.ShowDialog();
+            if (DateCombo.SelectedItem == DefaultItem)
+                MessageBox.Show("Choose a date.");
+            else
+            {
+                WindowSala dashboard = new WindowSala(paramtitlu, paramuser, DateCombo.Text);
+                dashboard.ShowDialog();
+            }
+            
             
         }
-
 
     }
 }

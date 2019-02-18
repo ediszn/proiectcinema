@@ -26,14 +26,14 @@
         </TextBlock>
             <Label Content="Book now:" Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="10,150,0,0"/>
 
-        <ComboBox Grid.Column="2" Height="Auto" Width="Auto" MinWidth="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,100" FontSize="15" Foreground="Black">
-            <ComboBoxItem IsSelected="True">-Choose date-</ComboBoxItem>
-            <ComboBoxItem Content="{Binding Date1}"></ComboBoxItem>
-            <ComboBoxItem Content="{Binding Date2}"></ComboBoxItem>
-            <ComboBoxItem Content="{Binding Date3}"></ComboBoxItem>
+        <ComboBox Name="DateCombo" Grid.Column="2" Height="Auto" Width="Auto" MinWidth="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,100" FontSize="15" Foreground="Black">
+            <ComboBoxItem Name="DefaultItem" IsSelected="True">-Choose date-</ComboBoxItem>
+            <ComboBoxItem Name="ItemDate1" Content="{Binding Date1}"></ComboBoxItem>
+            <ComboBoxItem Name="ItemDate2" Content="{Binding Date2}"></ComboBoxItem>
+            <ComboBoxItem Name="ItemDate3" Content="{Binding Date3}"></ComboBoxItem>
         </ComboBox>
         <Button Name="BookButton" Click="BookButton_Click" Grid.Column="2" Height="Auto" Width="Auto" MinHeight="40" MinWidth="160" MaxHeight="50" Margin="10,200,0,0" HorizontalAlignment="Left" Content="Book Seats!" FontSize="20" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}"/>
-        
-        
+
+
     </Grid>
 </UserControl>
