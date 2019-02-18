@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,24 +22,37 @@ namespace ProiectCinema
     /// </summary>
     public partial class WindowSala : Window
     {
-        //string paramtitlu, paramuser, paramdataora;
+        string paramtitlu, paramuser, paramdataora;
         SolidColorBrush mybluebrush = new SolidColorBrush(Color.FromRgb(0x33, 0x99, 0xCC));
         public List<int> locuriselectate = new List<int>();
         public WindowSala(string paramtitlu, string paramuser, string paramdataora)
         {
-            //this.paramtitlu = paramtitlu;
-            //this.paramuser = paramuser;
-            //this.paramdataora = paramdataora;
+            this.paramtitlu = paramtitlu;
+            this.paramuser = paramuser;
+            this.paramdataora = paramdataora;
             this.DataContext = this;
             this.TitleBind = paramtitlu + " " + paramdataora;
-
-            MessageBox.Show(paramdataora);
-
             List<int> locuriocupate = new List<int>();
 
-            locuriocupate.Add(10);
-            locuriocupate.Add(1);
-            locuriocupate.Add(3);
+
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
+            {
+
+                string query1 = "SELECT loc FROM rezervari WHERE numeFilm = '" + paramtitlu + "'" + " AND dataOra = '" + paramdataora + "'";
+
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon);
+                SqlDataAdapter da = new SqlDataAdapter(sqlCmd1);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    locuriocupate.Add(Convert.ToInt32(dr[0]));
+                }
+
+            }
+
             bool steag = false;
 
             InitializeComponent();
@@ -107,8 +122,27 @@ namespace ProiectCinema
             {
 
                 locuri = locuri + " " + locuriselectate[i].ToString();
+
+                using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
+                {
+                    if (sqlCon.State == System.Data.ConnectionState.Closed)
+                        sqlCon.Open();
+                    SqlCommand sqlCmd = new SqlCommand("RezervariAdd", sqlCon);
+                    sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("@username", paramuser);
+                    sqlCmd.Parameters.AddWithValue("@numeFilm", paramtitlu);
+                    sqlCmd.Parameters.AddWithValue("@dataOra", paramdataora);
+                    sqlCmd.Parameters.AddWithValue("@loc", locuriselectate[i]);
+                    sqlCmd.ExecuteNonQuery();
+                }
+                
+
+
+
+
             }
-            MessageBox.Show("ati rezervat locurile :" + locuri);
+            MessageBox.Show("Booking successful:" + locuri);
+            this.Close();
         }
 
         public string TitleBind
