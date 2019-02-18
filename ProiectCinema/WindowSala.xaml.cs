@@ -34,10 +34,8 @@ namespace ProiectCinema
             this.TitleBind = paramtitlu + " " + paramdataora;
             List<int> locuriocupate = new List<int>();
 
-
             using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
             {
-
                 string query1 = "SELECT loc FROM rezervari WHERE numeFilm = '" + paramtitlu + "'" + " AND dataOra = '" + paramdataora + "'";
 
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
@@ -50,12 +48,12 @@ namespace ProiectCinema
                 {
                     locuriocupate.Add(Convert.ToInt32(dr[0]));
                 }
-
             }
 
             bool steag = false;
 
             InitializeComponent();
+
             for (int i = 1; i < 46; i++)
             {
                 steag = false;
@@ -64,9 +62,7 @@ namespace ProiectCinema
                         steag = true;
 
                 if (steag == true)
-
                     gridlocuri.Children.Add(btndes(i));
-
                 else
                     gridlocuri.Children.Add(btn(i));
             }
@@ -95,7 +91,6 @@ namespace ProiectCinema
             margin.Bottom = 10;
             margin.Left = 2;
             b.Margin = margin;
-
             b.IsEnabled = false;
             return b;
         }
@@ -107,20 +102,17 @@ namespace ProiectCinema
                 loc.Background = Brushes.Green;
                 locuriselectate.Add(Convert.ToInt32(loc.Content.ToString()));
             }
-
             else
             {
                 loc.Background = mybluebrush;
                 locuriselectate.Remove(Convert.ToInt32(loc.Content.ToString()));
             }
         }
-
         private void rezervare(object sender, RoutedEventArgs e)
         {
             string locuri = "";
             for (int i = 0; i < locuriselectate.Count; i++)
             {
-
                 locuri = locuri + " " + locuriselectate[i].ToString();
 
                 using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
@@ -135,23 +127,15 @@ namespace ProiectCinema
                     sqlCmd.Parameters.AddWithValue("@loc", locuriselectate[i]);
                     sqlCmd.ExecuteNonQuery();
                 }
-                
-
-
-
-
             }
             MessageBox.Show("Booking successful:" + locuri);
             this.Close();
         }
-
         public string TitleBind
         {
             get { return (string)GetValue(TitleBindProperty); }
             set { SetValue(TitleBindProperty, value); }
         }
-
         public static readonly DependencyProperty TitleBindProperty = DependencyProperty.Register("TitleBind", typeof(string), typeof(myControl1), new PropertyMetadata(null));
-
     }
 }

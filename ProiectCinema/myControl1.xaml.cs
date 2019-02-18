@@ -29,13 +29,10 @@ namespace ProiectCinema
         {
             InitializeComponent();
             this.paramuser = userparam;
-
             afisajfilmeMW(param);
         }
-
         private void afisajfilmeMW(string title)
         {
-
             using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
             {
                 this.paramtitlu = title;
@@ -70,64 +67,49 @@ namespace ProiectCinema
                 Date1 = a[0];
                 Date2 = a[1];
                 Date3 = a[2];
-
-
-
             }
         }
-
         public string Date1
         {
             get { return (string)GetValue(Date1Property); }
             set { SetValue(Date1Property, value); }
         }
-
         public static readonly DependencyProperty Date1Property = DependencyProperty.Register("Date1", typeof(string), typeof(myControl1), new PropertyMetadata(null));
         public string Date2
         {
             get { return (string)GetValue(Date2Property); }
             set { SetValue(Date2Property, value); }
         }
-
         public static readonly DependencyProperty Date2Property = DependencyProperty.Register("Date2", typeof(string), typeof(myControl1), new PropertyMetadata(null));
         public string Date3
         {
             get { return (string)GetValue(Date3Property); }
             set { SetValue(Date3Property, value); }
         }
-
         public static readonly DependencyProperty Date3Property = DependencyProperty.Register("Date3", typeof(string), typeof(myControl1), new PropertyMetadata(null));
-
         public string Trailer
         {
             get { return (string)GetValue(TrailerProperty);  }
             set { SetValue(TrailerProperty, value);  }
         }
-
         public static readonly DependencyProperty TrailerProperty = DependencyProperty.Register("Trailer", typeof(string), typeof(myControl1), new PropertyMetadata(null));
-
         public BitmapImage Sursa
         {
             get { return (BitmapImage)GetValue(SursaProperty); }
             set { SetValue(SursaProperty, value); }
         }
-
         public static readonly DependencyProperty SursaProperty = DependencyProperty.Register("Sursa", typeof(BitmapImage), typeof(myControl1), new PropertyMetadata(null));
-
         public string Desc
         {
             get { return (string)GetValue(DescProperty); }
             set { SetValue(DescProperty, value); }
         }
-
         public static readonly DependencyProperty DescProperty = DependencyProperty.Register("Desc", typeof(string), typeof(myControl1), new PropertyMetadata(null));
-
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
-
         private void BookButton_Click(object sender, RoutedEventArgs e)
         {
             if (DateCombo.SelectedItem == DefaultItem)
@@ -136,10 +118,7 @@ namespace ProiectCinema
             {
                 WindowSala dashboard = new WindowSala(paramtitlu, paramuser, DateCombo.Text);
                 dashboard.ShowDialog();
-            }
-            
-            
+            }  
         }
-
     }
 }

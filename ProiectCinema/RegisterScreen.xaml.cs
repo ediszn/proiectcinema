@@ -24,12 +24,10 @@ namespace ProiectCinema
         {
             InitializeComponent();
         }
-
         private void OpCTxtBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             TextBox txtBox = sender as TextBox;
             txtBox.Opacity = 1;
-
         }
         private void OpCTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
@@ -61,7 +59,6 @@ namespace ProiectCinema
             if (passBox.Password.ToString() == "")
                 passBox.Opacity = 0.6;
         }
-
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
@@ -74,7 +71,6 @@ namespace ProiectCinema
                 {
                     if (sqlCon.State == System.Data.ConnectionState.Closed)
                         sqlCon.Open();
-
                     String query = "SELECT COUNT(*) FROM " + variabile.usertable + " WHERE username=@username";
                     SqlCommand sqlCmd1 = new SqlCommand(query, sqlCon);
                     sqlCmd1.CommandType = System.Data.CommandType.Text;

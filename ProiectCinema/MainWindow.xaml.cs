@@ -24,9 +24,7 @@ namespace ProiectCinema
     /// </summary>
     public partial class MainWindow : Window
     {
-
         string uservar;
-
         public MainWindow(string _text)
         {
             InitializeComponent();
@@ -41,8 +39,6 @@ namespace ProiectCinema
             filmeStack.Children.Add(new myControl1(variabile.film6,Loggeduser));
             filmeStack.Children.Add(new myControl1(variabile.film7,Loggeduser));
             filmeStack.Children.Add(new myControl1(variabile.film8,Loggeduser));
-
-            //  afisajfilmeMW(variabile.film4);
 
         }
 
@@ -97,6 +93,11 @@ namespace ProiectCinema
                 case MessageBoxResult.No:
                     break;
             }
+        }
+        private void RezervationsButton_Click(object sender, RoutedEventArgs e)
+        {
+             BookingWindow dashboard = new BookingWindow(Loggeduser);
+             dashboard.ShowDialog();
         }
     }
 }

@@ -15,8 +15,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-
         </Grid.RowDefinitions>
+        
         <Image Source="{Binding Sursa}" Grid.Row="0" Grid.Column="0" MinHeight="300" MinWidth="220" Height="Auto" Width="Auto" Margin="20,10,10,10" HorizontalAlignment="Center"/>
         <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Desc}" Grid.Row="0" Grid.Column="1" MinHeight="250" MinWidth="450" Height="Auto" Width="Auto" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
         <TextBlock Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="5,80,0,0">
@@ -24,7 +24,7 @@
                 Watch Trailer
             </Hyperlink>
         </TextBlock>
-            <Label Content="Book now:" Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="10,150,0,0"/>
+        <Label Content="Book now:" Grid.Column="2" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="10,150,0,0"/>
 
         <ComboBox Name="DateCombo" Grid.Column="2" Height="Auto" Width="Auto" MinWidth="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,100" FontSize="15" Foreground="Black">
             <ComboBoxItem Name="DefaultItem" IsSelected="True">-Choose date-</ComboBoxItem>
@@ -32,8 +32,7 @@
             <ComboBoxItem Name="ItemDate2" Content="{Binding Date2}"></ComboBoxItem>
             <ComboBoxItem Name="ItemDate3" Content="{Binding Date3}"></ComboBoxItem>
         </ComboBox>
+
         <Button Name="BookButton" Click="BookButton_Click" Grid.Column="2" Height="Auto" Width="Auto" MinHeight="40" MinWidth="160" MaxHeight="50" Margin="10,200,0,0" HorizontalAlignment="Left" Content="Book Seats!" FontSize="20" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}"/>
-
-
     </Grid>
 </UserControl>

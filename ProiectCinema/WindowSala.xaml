@@ -8,9 +8,6 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Cinema IESC" MinHeight="450" MinWidth="800" Height="450" Width="800" Icon="cinemaproiect.png">
-    <Window.Resources>
-        <SolidColorBrush x:Key="MyBlueColor" Color="#FF3399CC" />
-    </Window.Resources>
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -18,6 +15,7 @@
                 <GradientStop Color="#FF0D213E" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        
         <Label Content="You selected:" VerticalAlignment="Center" Margin="260,0,0,350" FontSize="20" Foreground="#FF3399CC"/>
         <TextBlock Text="{Binding TitleBind}" VerticalAlignment="Center" Margin="390,0,0,350" FontSize="20" Foreground="White"/>
         <Label Content="SCREEN" VerticalAlignment="Center" Margin="445,0,0,280" FontSize="30" Foreground="#FF3399CC" Opacity="0.5"/>
