@@ -31,15 +31,28 @@ namespace ProiectCinema
             this.DataContext = this;
             this.uservar = _text;
 
-            filmeStack.Children.Add(new myControl1(variabile.film1,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film2,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film3,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film4,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film5,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film6,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film7,Loggeduser));
-            filmeStack.Children.Add(new myControl1(variabile.film8,Loggeduser));
+            List<string> listafilme = new List<string>();
 
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=ProiectCinema; Integrated Security=True"))
+            {
+                string query1 = "SELECT numeFilm FROM filmeMainWindow";
+
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon);
+                SqlDataAdapter da = new SqlDataAdapter(sqlCmd1);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    listafilme.Add(Convert.ToString(dr[0]));
+                }
+            }
+
+            for(int i = 0; i < listafilme.Count(); i++)
+            {
+                filmeStack.Children.Add(new myControl1(listafilme[i], Loggeduser));
+            }
         }
         public string Loggeduser
         {

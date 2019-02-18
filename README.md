@@ -1,5 +1,4 @@
-# proiectcinema
+# Proiectcinema
 Proiect Cinema - Szen &amp; Crihana
 
-Test
-fsdgsdg
+Proiect TP
