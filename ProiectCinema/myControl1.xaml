@@ -32,7 +32,7 @@
             <ComboBoxItem>Date2</ComboBoxItem>
             <ComboBoxItem>Date3</ComboBoxItem>
         </ComboBox>
-        <Button Name="BookButton" Grid.Column="2" Height="Auto" Width="Auto" MinHeight="40" MinWidth="160" MaxHeight="50" Margin="10,200,0,0" HorizontalAlignment="Left" Content="Book Seats!" FontSize="20" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}"/>
+        <Button Name="BookButton" Click="BookButton_Click" Grid.Column="2" Height="Auto" Width="Auto" MinHeight="40" MinWidth="160" MaxHeight="50" Margin="10,200,0,0" HorizontalAlignment="Left" Content="Book Seats!" FontSize="20" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}"/>
         
         
     </Grid>

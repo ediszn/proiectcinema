@@ -53,3 +53,5 @@ G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.exe
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.pdb
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\ProiectCinema.csprojAssemblyReference.cache
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\GeneratedInternalTypeHelper.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\WindowSala.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\WindowSala.baml

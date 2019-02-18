@@ -95,6 +95,11 @@ namespace ProiectCinema
             e.Handled = true;
         }
 
-
+        private void BookButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowSala dashboard = new WindowSala();
+            dashboard.ShowDialog();
+            
+        }
     }
 }

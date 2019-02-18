@@ -132,6 +132,9 @@
       <DependentUpon>RegisterScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="variabile.cs" />
+    <Compile Include="WindowSala.xaml.cs">
+      <DependentUpon>WindowSala.xaml</DependentUpon>
+    </Compile>
     <Page Include="LoginScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowSala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
