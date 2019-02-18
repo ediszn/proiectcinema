@@ -20,6 +20,7 @@ namespace ProiectCinema
     /// </summary>
     public partial class WindowSala : Window
     {
+        SolidColorBrush mybluebrush = new SolidColorBrush(Color.FromRgb(0x33, 0x99, 0xCC));
         public List<int> locuriselectate = new List<int>();
         public WindowSala()
         {
@@ -31,7 +32,7 @@ namespace ProiectCinema
             bool steag = false;
 
             InitializeComponent();
-            for (int i = 1; i < 57; i++)
+            for (int i = 1; i < 46; i++)
             {
                 steag = false;
                 for (int j = 0; j < locuriocupate.Count; j++)
@@ -56,7 +57,7 @@ namespace ProiectCinema
             margin.Bottom = 10;
             margin.Left = 2;
             b.Margin = margin;
-            b.Background = Brushes.White;
+            b.Background = mybluebrush;
             b.Click += Button_Click;
             return b;
         }
@@ -77,7 +78,7 @@ namespace ProiectCinema
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button loc = sender as Button;
-            if (loc.Background == Brushes.White)
+            if (loc.Background == mybluebrush)
             {
                 loc.Background = Brushes.Green;
                 locuriselectate.Add(Convert.ToInt32(loc.Content.ToString()));
@@ -85,7 +86,7 @@ namespace ProiectCinema
 
             else
             {
-                loc.Background = Brushes.White;
+                loc.Background = mybluebrush;
                 locuriselectate.Remove(Convert.ToInt32(loc.Content.ToString()));
             }
         }

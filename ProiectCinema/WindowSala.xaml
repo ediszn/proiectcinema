@@ -4,11 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProiectCinema"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Cinema IESC" Height="450" Width="800" Icon="cinemaproiect.png">
+        Title="Cinema IESC" MinHeight="450" MinWidth="800" Height="450" Width="800" Icon="cinemaproiect.png">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MyBlueColor" Color="#FF3399CC" />
+    </Window.Resources>
     <Grid>
-        <WrapPanel Name="gridlocuri" HorizontalAlignment="Left" Height="240" Margin="216,84,0,0" VerticalAlignment="Top" Width="382"/>
-        <Button Content="Rezerva" HorizontalAlignment="Left" Margin="656,134,0,0" VerticalAlignment="Top" Width="75" Click="rezervare"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF0D213E" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="ECRAN" VerticalAlignment="Center" Margin="450,0,0,280" FontSize="30" Foreground="#FF3399CC" Opacity="0.5"/>
+        <Separator  VerticalAlignment="Center" Margin="330,0,115,240" Background="#FF3399CC" Opacity="0.5">
+            <Separator.RenderTransform>
+                <ScaleTransform ScaleY="5"/>
+            </Separator.RenderTransform>
+        </Separator>
+
+        <Image Margin="0,0,485,240" Height="140" Width="Auto" Source="logocinemaalb.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Select seats:" VerticalAlignment="Center" Margin="64,30,0,50" FontSize="30" Foreground="#FF3399CC"/>
+        <Label Content="T" VerticalAlignment="Center" Margin="0,50,580,0"  Height="20" Width="20" Background="#FFF4F4F4" Foreground="#FFF4F4F4"/>
+        <Label Content="T" VerticalAlignment="Center" Margin="0,100,580,0" Height="20" Width="20" Background="#FF3399CC" Foreground="#FF3399CC"/>
+        <Label Content="T" VerticalAlignment="Center" Margin="0,150,580,0" Height="20" Width="20" Background="Green" Foreground="Green"/>
+        <Label Content=" - Unavailable" VerticalAlignment="Center" Margin="113,50,0,0" Foreground="White" FontSize="15"/>
+        <Label Content=" - Available" VerticalAlignment="Center" Margin="113,100,0,0" Foreground="White" FontSize="15"/>
+        <Label Content=" - Selected" VerticalAlignment="Center" Margin="113,150,0,0" Foreground="White" FontSize="15"/>
+        
+        <WrapPanel Name="gridlocuri" HorizontalAlignment="Center" Height="240" Width="382" MinHeight="240" Margin="220,80,0,0" VerticalAlignment="Center" MinWidth="382"/>
+        <Button Content="Confirm" HorizontalAlignment="Center" Margin="0,285,485,0" VerticalAlignment="Center" Height="35" Width="140" FontSize="20" Foreground="White" Background="#FF3399CC" BorderBrush="{x:Null}" Click="rezervare"/>
     </Grid>
 </Window>
