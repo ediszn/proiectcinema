@@ -32,41 +32,51 @@ namespace ProiectCinema
             InitializeComponent();
             this.DataContext = this;
             this.uservar = _text;
-            afisajfilmeMW(variabile.film4);
+
+            filmeStack.Children.Add(new myControl1(variabile.film1));
+            filmeStack.Children.Add(new myControl1(variabile.film2));
+            filmeStack.Children.Add(new myControl1(variabile.film3));
+            filmeStack.Children.Add(new myControl1(variabile.film4));
+            filmeStack.Children.Add(new myControl1(variabile.film5));
+            filmeStack.Children.Add(new myControl1(variabile.film6));
+            filmeStack.Children.Add(new myControl1(variabile.film7));
+            filmeStack.Children.Add(new myControl1(variabile.film8));
+
+            //  afisajfilmeMW(variabile.film4);
 
         }
 
-        private void afisajfilmeMW(string title)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
-            {
-                string query1 = "SELECT afis FROM filmeMainWindow WHERE numeFilm = '"+title+"'";
+        //private void afisajfilmeMW(string title)
+        //{
+        //    using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\" + variabile.serverName + "; Initial Catalog=" + variabile.dBName + "; Integrated Security=True"))
+        //    {
+        //        string query1 = "SELECT afis FROM filmeMainWindow WHERE numeFilm = '"+title+"'";
 
-                if (sqlCon.State == System.Data.ConnectionState.Closed)
-                    sqlCon.Open();
-                SqlCommand sqlCmd = new SqlCommand(query1, sqlCon);
-                SqlDataReader reader = sqlCmd.ExecuteReader();
-                reader.Read();
-                byte[] img = (byte[])(reader[0]);
-                MemoryStream ms = new MemoryStream(img);
-                var imageSource = new BitmapImage();
-                imageSource.BeginInit();
-                imageSource.StreamSource = ms;
-                imageSource.EndInit();
-                Afis1.Source = imageSource;
-                reader.Close();
+        //        if (sqlCon.State == System.Data.ConnectionState.Closed)
+        //            sqlCon.Open();
+        //        SqlCommand sqlCmd = new SqlCommand(query1, sqlCon);
+        //        SqlDataReader reader = sqlCmd.ExecuteReader();
+        //        reader.Read();
+        //        byte[] img = (byte[])(reader[0]);
+        //        MemoryStream ms = new MemoryStream(img);
+        //        var imageSource = new BitmapImage();
+        //        imageSource.BeginInit();
+        //        imageSource.StreamSource = ms;
+        //        imageSource.EndInit();
+        //        Afis1.Source = imageSource;
+        //        reader.Close();
 
-                string query2 = "SELECT descriere FROM filmeMainWindow WHERE numeFilm = '"+title+"'";
-                if (sqlCon.State == System.Data.ConnectionState.Closed)
-                    sqlCon.Open();
-                SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
-                SqlDataReader reader2 = sqlCmd2.ExecuteReader();
-                reader2.Read();
-                Desc1.Text = reader2[0].ToString();
-                reader2.Close();
+        //        string query2 = "SELECT descriere FROM filmeMainWindow WHERE numeFilm = '"+title+"'";
+        //        if (sqlCon.State == System.Data.ConnectionState.Closed)
+        //            sqlCon.Open();
+        //        SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
+        //        SqlDataReader reader2 = sqlCmd2.ExecuteReader();
+        //        reader2.Read();
+        //        Desc1.Text = reader2[0].ToString();
+        //        reader2.Close();
 
-            }
-        }
+        //    }
+        //}
 
         public string Loggeduser
         {
