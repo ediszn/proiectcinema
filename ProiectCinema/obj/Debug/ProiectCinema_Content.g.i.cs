@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("defaultafis.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database1.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database1_log.ldf")]
 
 
