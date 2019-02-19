@@ -65,9 +65,19 @@ namespace ProiectCinema
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
-                    MainWindow dashboard = new MainWindow(UserTxtBox.Text);
-                    dashboard.Show();
-                    this.Close();
+
+                    if (UserTxtBox.Text == "Admin")
+                    {
+                        AdminWindow admindash = new AdminWindow(UserTxtBox.Text);
+                        admindash.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MainWindow dashboard = new MainWindow(UserTxtBox.Text);
+                        dashboard.Show();
+                        this.Close();
+                    } 
                 }
                 else
                 {

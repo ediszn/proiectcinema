@@ -56,3 +56,7 @@ G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\WindowSala.g.cs
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\WindowSala.baml
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\BookingWindow.g.cs
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\BookingWindow.baml
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\AdminWindow.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\AdminWindow.baml
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\RaportWindow.g.cs
+G:\VS Repos\ProiectCinema\GIT\ProiectCinema\obj\Debug\RaportWindow.baml

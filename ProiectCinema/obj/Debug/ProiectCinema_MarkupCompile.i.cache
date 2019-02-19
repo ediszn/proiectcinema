@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 G:\VS Repos\ProiectCinema\GIT\ProiectCinema\App.xaml
-6791676250
+8-1568581554
 
-15-3841224
+17278257896
 18-1032412043
-BookingWindow.xaml;LoginScreen.xaml;MainWindow.xaml;myControl1.xaml;RegisterScreen.xaml;WindowSala.xaml;
+AdminWindow.xaml;BookingWindow.xaml;LoginScreen.xaml;MainWindow.xaml;myControl1.xaml;RaportWindow.xaml;RegisterScreen.xaml;WindowSala.xaml;
 
-True
+False
 
