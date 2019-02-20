@@ -1,5 +1,5 @@
 # Proiectcinema
-Proiect Cinema - Szen &amp; Crihana
+Cinema - Szen &amp; Crihana
 
-Proiect realizat in cadrul cursului de tehnici de programare
-sub indrumarea domnului Profesor Danciu Gabriel
+Project developed in the course of Programming Techniques
+under the guidance of Prof. Danciu Gabriel
